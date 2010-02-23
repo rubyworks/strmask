@@ -1,7 +1,7 @@
 = String::Mask
 
-home: http://rubyworks.github.com/strmask
-work: http://github.com/rubyworks/strmask
+* home: http://rubyworks.github.com/strmask
+* work: http://github.com/rubyworks/strmask
 
 
 == DESCRIPTION

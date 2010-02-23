@@ -1,4 +1,4 @@
-require 'facets/functor'
+#require 'facets/functor'
 
 class String
 
