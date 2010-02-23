@@ -1,0 +1,47 @@
+= String::Mask
+
+home: http://rubyworks.github.com/strmask
+work: http://github.com/rubyworks/strmask
+
+
+== DESCRIPTION
+
+Mask provides a string utility to manipulate strings
+in logicomathematical manner, ie. add, subtract, xor,
+etc.
+
+== SYNOPSIS
+
+Mask objects can be created explicitly via #new.
+
+  m1 = String::Mask.new("abc..123", '.')
+  m2 = String::Mask.new("ab..789.", '.')
+  m1 - m2                             #=> "....789."
+
+But the String#mask extension is much easier to use.
+
+  m1 = "abc..123".mask('.')
+  m2 = "ab..789.".mask('.')
+  m1 * m2                             #=> "ab..789."
+
+The second operand can be a normal String. Mask will assume
+it repesents another mask akin to the first.
+
+  "abc..123".mask('.') + "ab..789."   #=> "abc.7893"
+
+
+== HOW TO INSTALL
+
+To install with RubyGems simply open a console and type:
+
+  gem install mask
+
+
+== COPYRIGHT
+
+Copyright (c) 2009 Thomas Sawyer
+
+This program is ditributed unser the terms of the LGPL license.
+
+See the LICENSE or COPYING file for details.
+
