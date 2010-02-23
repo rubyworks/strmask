@@ -1,7 +1,7 @@
 require 'test/unit'
-require 'mask'
+require 'strmask'
 
-class TestMask < Test::Unit::TestCase
+class TestStringMask < Test::Unit::TestCase
 
   def setup
     @x1 = String::Mask["abc..123", '.']
