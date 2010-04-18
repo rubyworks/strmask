@@ -1,10 +1,22 @@
 = HISTORY
 
-== 1.0.0 / 2009-07-19
+== 0.3.0 / 2010-04-18
 
-This is the initial release of Mask.
+This release changes #to_s and #inspect so they
+re-insert the escape charater into the return string.
 
-* 1 Major Enhancment
+Changes:
 
-    * Happy Birthday!
+* Changed #inspect to reinsert escape character.
+* Changed #to_s to reinsert escape character.
+
+
+== 0.2.1 / 2010-02-22
+
+This is the initial public release of String::Mask.
+This library was spun-off from Ruby Facets.
+
+Changes:
+
+* Happy Birthday!
 

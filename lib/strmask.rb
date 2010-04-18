@@ -21,6 +21,7 @@ class String
 
     def initialize(string, re=nil)
       @to_str = string.dup
+      @re     = re
       mask!(re) if re
     end
 
@@ -40,14 +41,14 @@ class String
       @to_str
     end
 
-    #
+    # TODO: Should this use the escape character or not?
     def to_s
-      to_str
+      @to_str.gsub(ESC, @re)
     end
 
     #
     def inspect
-      to_str.inspect
+      @to_str.gsub(ESC, @re).inspect
     end
 
     #
@@ -84,7 +85,7 @@ class String
         end
         i += 1
       end
-      self.class.new(o)
+      self.class.new(o, @re)
     end
 
     # Mask ADD. As long as there is a value other
@@ -108,7 +109,7 @@ class String
         end
         i += 1
       end
-      self.class.new(o)
+      self.class.new(o, @re)
     end
 
     # Mask OR is the same as ADD.
@@ -135,7 +136,7 @@ class String
         end
         i += 1
       end
-      self.class.new(o)
+      self.class.new(o, @re)
     end
 
     # Mask AND. Only where they are
@@ -158,7 +159,7 @@ class String
         end
         i += 1
       end
-      self.class.new(o)
+      self.class.new(o, @re)
     end
 
     # Mask XOR operation. Only where there
@@ -183,7 +184,7 @@ class String
         end
         i += 1
       end
-      self.class.new(o)
+      self.class.new(o, @re)
     end
 
     #
