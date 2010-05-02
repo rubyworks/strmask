@@ -1,0 +1,1043 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Class: String::Mask</title>
+
+  
+    <link rel="SHORTCUT ICON" href="../assets/icon/class.png">
+  
+
+  <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../assets/highlight/styles/github.css" title="GitHub" />
+
+  <script type="text/javascript" charset="utf-8" src="../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      $('#documentation pre').wrapInner('<code></code>');
+      hljs.tabReplace = '    ';
+      hljs.initHighlightingOnLoad('ruby');
+
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind( "click", highlightClickTarget );
+    });
+  </script>
+</head>
+<body class="class">
+<div id="main">
+
+  <div class="head">
+    <h1>
+      
+        <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
+      
+      <a href="../index.html">String::Mask</a>&nbsp;
+      <a href="/">String::Mask</a>
+    </h1>
+  </div>
+
+  <div id="metadata">
+    <div id="project-metadata">
+
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li class="file"><a href="../lib/strmask_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/strmask.rb">lib/strmask.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
+
+      
+    </div>
+
+    <div id="class-metadata">
+
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        <ul>
+          
+          <li class="class">Object</li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Namespace Contents -->
+      
+
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+            
+            <li class="singleton">
+              <a href="#method-c-%5B%5D">::[]</a>
+            </li>
+          
+            
+            <li class="singleton">
+              <a href="#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-%26">#&</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-%2A">#*</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-%2B">#+</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i--">#-</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-%3D%3D">#==</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-%5B%5D">#[]</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-%5E">#^</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-apply">#apply</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-convert">#convert</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-inspect">#inspect</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-mask">#mask</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-mask%21">#mask!</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-method_missing">#method_missing</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-replace">#replace</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-to_s">#to_s</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-to_str">#to_str</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-%7C">#|</a>
+            </li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Included Modules -->
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="../HISTORY.html">HISTORY</a></li>
+        
+          <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="../assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <!-- classpage.html : classes -->
+        <ul class="link-list">
+        
+          <li class="class"><a href="../String.html">String</a></li>
+        
+          <li class="class"><a href="../String/Mask.html">String::Mask</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+    </div>
+
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://github.com/proutils/webri">WebRI Redfish</a> 1.2.1
+      <br/><br/>
+    </div>
+  </div>
+
+  <div id="documentation">
+
+    <div id="description">
+      
+
+      <h1><a href="Mask.html">Mask</a></h1>
+
+    </div>
+
+    <!-- Constants -->
+    
+    <div id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt><a name="ESC">ESC</a></dt>
+        
+        <dd class="description"></dd>
+        
+      
+      </dl>
+    </div>
+    
+
+    <!-- Attributes -->
+    
+
+    <!-- Methods -->
+    
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="--method" class="method-detail ">
+        <a name="method-c-%5B%5D"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">[]</span><span
+            class="method-args">(string, re=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/strmask.rb, line 16</span>
+16:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-operator">[]</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">re</span>=<span class="ruby-keyword kw">nil</span>)
+17:       <span class="ruby-identifier">new</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">re</span>)
+18:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="new-method" class="method-detail ">
+        <a name="method-c-new"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">new</span><span
+            class="method-args">(string, re=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/strmask.rb, line 22</span>
+22:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">re</span>=<span class="ruby-keyword kw">nil</span>)
+23:       <span class="ruby-ivar">@to_str</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">dup</span>
+24:       <span class="ruby-ivar">@re</span>     = <span class="ruby-identifier">re</span>
+25:       <span class="ruby-identifier">mask!</span>(<span class="ruby-identifier">re</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">re</span>
+26:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="--method" class="method-detail ">
+        <a name="method-i-%26"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">&amp;</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+<a href="Mask.html">Mask</a> AND. Only where they are then same filters
+through.
+</p>
+<pre>
+    &quot;abc..123&quot;      &quot;ab..789.&quot;
+  &amp; &quot;ab..789.&quot;    | &quot;abc..123&quot;
+    ----------      ----------
+    &quot;ab......&quot;      &quot;ab......&quot;</pre>
+          
+
+          
+          <div class="method-source-code"
+            id="--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/strmask.rb, line 150</span>
+150:     <span class="ruby-keyword kw">def</span> &amp;(<span class="ruby-identifier">other</span>)
+151:       <span class="ruby-identifier">other</span> = <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">other</span>)
+152:       <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+153:       <span class="ruby-identifier">o</span> = <span class="ruby-value str">''</span>
+154:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">to_str</span>.<span class="ruby-identifier">size</span>
+155:         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">c</span> = <span class="ruby-identifier">to_str</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>]) <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>]
+156:           <span class="ruby-identifier">o</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>
+157:         <span class="ruby-keyword kw">else</span>
+158:           <span class="ruby-identifier">o</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ESC</span>
+159:         <span class="ruby-keyword kw">end</span>
+160:         <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+161:       <span class="ruby-keyword kw">end</span>
+162:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o</span>, <span class="ruby-ivar">@re</span>)
+163:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="--method" class="method-detail ">
+        <a name="method-i-%2A"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">*</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+<a href="Mask.html">Mask</a> XAND. Where the characters are the same, the
+result is the same, where they differ the result reflects the later.
+</p>
+<pre>
+    &quot;abc..123&quot;      &quot;ab..789.&quot;
+  * &quot;ab..789.&quot;    * &quot;abc..123&quot;
+    ----------      ----------
+    &quot;ab..789.&quot;      &quot;abc..123&quot;</pre>
+          
+
+          
+          <div class="method-source-code"
+            id="--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/strmask.rb, line 127</span>
+127:     <span class="ruby-keyword kw">def</span> *(<span class="ruby-identifier">other</span>)
+128:       <span class="ruby-identifier">other</span> = <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">other</span>)
+129:       <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+130:       <span class="ruby-identifier">o</span> = <span class="ruby-value str">''</span>
+131:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">to_str</span>.<span class="ruby-identifier">size</span>
+132:         <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">c</span> = <span class="ruby-identifier">to_str</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>]) <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>]
+133:           <span class="ruby-identifier">o</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>
+134:         <span class="ruby-keyword kw">else</span>
+135:           <span class="ruby-identifier">o</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">other</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>]
+136:         <span class="ruby-keyword kw">end</span>
+137:         <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+138:       <span class="ruby-keyword kw">end</span>
+139:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o</span>, <span class="ruby-ivar">@re</span>)
+140:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="--method" class="method-detail ">
+        <a name="method-i-%2B"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">+</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+<a href="Mask.html">Mask</a> ADD. As long as there is a value other then
+empty the character filters though. The last <a
+href="Mask.html#method-i-to_str">to_str</a> takes precedence.
+</p>
+<pre>
+    &quot;abc..123&quot;      &quot;ab..789.&quot;
+  + &quot;ab..789.&quot;    + &quot;abc..123&quot;
+    ----------      ----------
+    &quot;abc.7893&quot;      &quot;abc.7123&quot;</pre>
+          
+
+          
+          <div class="method-source-code"
+            id="--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/strmask.rb, line 100</span>
+100:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">+</span>(<span class="ruby-identifier">other</span>)
+101:       <span class="ruby-identifier">other</span> = <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">other</span>)
+102:       <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+103:       <span class="ruby-identifier">o</span> = <span class="ruby-value str">''</span>
+104:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">to_str</span>.<span class="ruby-identifier">size</span>
+105:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-constant">ESC</span>
+106:           <span class="ruby-identifier">o</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">to_str</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>]
+107:         <span class="ruby-keyword kw">else</span>
+108:           <span class="ruby-identifier">o</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">other</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>]
+109:         <span class="ruby-keyword kw">end</span>
+110:         <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+111:       <span class="ruby-keyword kw">end</span>
+112:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o</span>, <span class="ruby-ivar">@re</span>)
+113:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Mask.html#method-i-%7C">|</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="--method" class="method-detail ">
+        <a name="method-i--"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">-</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+<a href="Mask.html">Mask</a> subtraction. Where the characters are the
+same, the result is &#8220;empty&#8221;, where they differ the result
+reflects the last string.
+</p>
+<pre>
+    &quot;abc..123&quot;      &quot;ab..789.&quot;
+  * &quot;ab..789.&quot;    - &quot;abc..123&quot;
+    ----------      ----------
+    &quot;....789.&quot;      &quot;..c..123&quot;</pre>
+          
+
+          
+          <div class="method-source-code"
+            id="--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/strmask.rb, line 76</span>
+76:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">-</span>(<span class="ruby-identifier">other</span>)
+77:       <span class="ruby-identifier">other</span> = <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">other</span>)
+78:       <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+79:       <span class="ruby-identifier">o</span> = <span class="ruby-value str">''</span>
+80:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">to_str</span>.<span class="ruby-identifier">size</span>
+81:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">to_str</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>]
+82:           <span class="ruby-identifier">o</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ESC</span>
+83:         <span class="ruby-keyword kw">else</span>
+84:           <span class="ruby-identifier">o</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">other</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>]
+85:         <span class="ruby-keyword kw">end</span>
+86:         <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+87:       <span class="ruby-keyword kw">end</span>
+88:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o</span>, <span class="ruby-ivar">@re</span>)
+89:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="--method" class="method-detail ">
+        <a name="method-i-%3D%3D"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">==</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/strmask.rb, line 191</span>
+191:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+192:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">other</span>
+193:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Mask</span>
+194:         <span class="ruby-identifier">to_str</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_str</span>
+195:       <span class="ruby-keyword kw">else</span>
+196:         <span class="ruby-identifier">to_str</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_s</span>
+197:       <span class="ruby-keyword kw">end</span>
+198:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="--method" class="method-detail ">
+        <a name="method-i-%5B%5D"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">[]</span><span
+            class="method-args">(*a)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/strmask.rb, line 55</span>
+55:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(*<span class="ruby-identifier">a</span>)
+56:       <span class="ruby-identifier">to_str</span>[*<span class="ruby-identifier">a</span>]
+57:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="--method" class="method-detail ">
+        <a name="method-i-%5E"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">^</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+<a href="Mask.html">Mask</a> XOR operation. Only where there is an empty
+slot will the value filter.
+</p>
+<pre>
+    &quot;abc..123&quot;      &quot;ab..789.&quot;
+  | &quot;ab..789.&quot;    | &quot;abc..123&quot;
+    ----------      ----------
+    &quot;..c.7..3&quot;      &quot;..c.7..3&quot;</pre>
+          
+
+          
+          <div class="method-source-code"
+            id="--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/strmask.rb, line 173</span>
+173:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">^</span>(<span class="ruby-identifier">other</span>)
+174:       <span class="ruby-identifier">other</span> = <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">other</span>)
+175:       <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+176:       <span class="ruby-identifier">o</span> = <span class="ruby-value str">''</span>
+177:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">to_str</span>.<span class="ruby-identifier">size</span>
+178:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">to_str</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-constant">ESC</span>
+179:           <span class="ruby-identifier">o</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">other</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>]
+180:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">other</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-constant">ESC</span>
+181:           <span class="ruby-identifier">o</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">to_str</span>[<span class="ruby-identifier">i</span>,<span class="ruby-value">1</span>]
+182:         <span class="ruby-keyword kw">else</span>
+183:           <span class="ruby-identifier">o</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ESC</span>
+184:         <span class="ruby-keyword kw">end</span>
+185:         <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+186:       <span class="ruby-keyword kw">end</span>
+187:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o</span>, <span class="ruby-ivar">@re</span>)
+188:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="apply-method" class="method-detail ">
+        <a name="method-i-apply"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">apply</span><span
+            class="method-args">(s=nil, *a, &b)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Apply a method to the internal string and return a new mask.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="apply-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/strmask.rb, line 202</span>
+202:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">apply</span>(<span class="ruby-identifier">s</span>=<span class="ruby-keyword kw">nil</span>, *<span class="ruby-identifier">a</span>, &amp;<span class="ruby-identifier">b</span>)
+203:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">s</span>
+204:         <span class="ruby-identifier">to_str</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">s</span>,*<span class="ruby-identifier">a</span>,&amp;<span class="ruby-identifier">b</span>).<span class="ruby-identifier">to_mask</span>
+205:       <span class="ruby-keyword kw">else</span>
+206:         <span class="ruby-ivar">@_self</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Functor</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">op</span>, *<span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+207:           <span class="ruby-identifier">to_str</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">op</span>,*<span class="ruby-identifier">a</span>).<span class="ruby-identifier">to_mask</span>
+208:         <span class="ruby-keyword kw">end</span>
+209:       <span class="ruby-keyword kw">end</span>
+210:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="inspect-method" class="method-detail ">
+        <a name="method-i-inspect"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="inspect-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/strmask.rb, line 50</span>
+50:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
+51:       <span class="ruby-ivar">@to_str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">ESC</span>, <span class="ruby-ivar">@re</span>).<span class="ruby-identifier">inspect</span>
+52:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="mask-method" class="method-detail ">
+        <a name="method-i-mask"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">mask</span><span
+            class="method-args">(re)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="mask-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/strmask.rb, line 59</span>
+59:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mask</span>(<span class="ruby-identifier">re</span>)
+60:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">to_str</span>,<span class="ruby-identifier">re</span>)
+61:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="mask--method" class="method-detail ">
+        <a name="method-i-mask%21"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">mask!</span><span
+            class="method-args">(re)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="mask--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/strmask.rb, line 63</span>
+63:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mask!</span>(<span class="ruby-identifier">re</span>)
+64:       <span class="ruby-identifier">to_str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-identifier">re</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-constant">ESC</span> * <span class="ruby-identifier">s</span>.<span class="ruby-identifier">size</span> }
+65:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="method-missing-method" class="method-detail ">
+        <a name="method-i-method_missing"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">method_missing</span><span
+            class="method-args">(s, *a, &b)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Delegate any missing methods to underlying string.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="method-missing-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/strmask.rb, line 231</span>
+231:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">s</span>, *<span class="ruby-identifier">a</span>, &amp;<span class="ruby-identifier">b</span>)
+232:       <span class="ruby-keyword kw">begin</span>
+233:         <span class="ruby-identifier">to_str</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">s</span>, *<span class="ruby-identifier">a</span>, &amp;<span class="ruby-identifier">b</span>)
+234:       <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">NoMethodError</span>
+235:         <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">s</span>, *<span class="ruby-identifier">a</span>, &amp;<span class="ruby-identifier">b</span>)
+236:       <span class="ruby-keyword kw">end</span>
+237:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="replace-method" class="method-detail ">
+        <a name="method-i-replace"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">replace</span><span
+            class="method-args">(string)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="replace-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/strmask.rb, line 213</span>
+213:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">string</span>)
+214:       <span class="ruby-ivar">@to_str</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">to_s</span>
+215:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="to-s-method" class="method-detail ">
+        <a name="method-i-to_s"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+TODO: Should this use the escape character or not?
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="to-s-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/strmask.rb, line 45</span>
+45:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>
+46:       <span class="ruby-ivar">@to_str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">ESC</span>, <span class="ruby-ivar">@re</span>)
+47:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="to-str-method" class="method-detail ">
+        <a name="method-i-to_str"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">to_str</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+The underlying string object.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="to-str-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/strmask.rb, line 40</span>
+40:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_str</span>
+41:       <span class="ruby-ivar">@to_str</span>
+42:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="--method" class="method-detail method-alias">
+        <a name="method-i-%7C"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">|</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+<a href="Mask.html">Mask</a> OR is the same as ADD.
+</p>
+          
+
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="private-instance-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="convert-method" class="method-detail ">
+        <a name="method-i-convert"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">convert</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="convert-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/strmask.rb, line 28</span>
+28:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">other</span>)
+29:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">other</span>
+30:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Mask</span>
+31:         <span class="ruby-identifier">other</span>
+32:       <span class="ruby-keyword kw">else</span>
+33:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">re</span>)
+34:       <span class="ruby-keyword kw">end</span>
+35:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+
+  </div>
+
+
+  <div id="rdoc-debugging-section-dump" class="debugging-section">
+  
+    <p>Disabled; run with --debug to generate this.</p>
+  
+  </div>
+
+</main>
+</body>
+</html>
+
