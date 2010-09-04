@@ -7,7 +7,7 @@ authors: Thomas Sawyer
 created: 2009-07-19
 
 copyright:
-  Copyright (c) 2009 Thamas Sawyer
+  Copyright (c) 2009 Thomas Sawyer
 
 description:
   String::Mask provides a kind-of string algebra

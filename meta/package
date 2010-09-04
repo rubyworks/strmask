@@ -1,0 +1,7 @@
+name    : strmask
+version : 0.3.0
+date    : 2010-04-18
+
+requires:
+- syckle (build)
+
