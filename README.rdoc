@@ -41,7 +41,7 @@ To install with RubyGems simply open a console and type:
 
 Copyright (c) 2009 Thomas Sawyer
 
-This program is ditributed unser the terms of the LGPL license.
+This program is ditributed unser the terms of the Apache 2.0 license.
 
-See the LICENSE or COPYING file for details.
+See the LICENSE file for details.
 
