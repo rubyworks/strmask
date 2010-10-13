@@ -1,13 +1,11 @@
-# String Masking
+= String Masking
 
     require 'strmask'
 
 There are a few ways to create a string mask.
 
     x1 = String::Mask.new("abc..123", '.')
-
     x2 = String::Mask["abc..123", '.']
-
     x3 = "abc..123".mask('.')
 
 All of the above examples are equivelent.
@@ -25,45 +23,38 @@ We will use the folowing two string masks to demonstrate the various masking
 operators below.
 
     x1 = "abc..123".mask('.')
-
     x2 = "ab..789.".mask('.')
 
 For Addition, as long as there is a value other then empty the character
 filters though.
 
-    (x1 + x2).assert == "abc.7893".mask('.')
-
-    (x2 + x1).assert == "abc.7123".mask('.')
+    (x1 + x2)  #=> "abc.7893".mask('.')
+    (x2 + x1)  #=> "abc.7123".mask('.')
 
 The OR operator is the same as addition.
 
-    (x1 | x2).assert == "abc.7893".mask('.')
-
-    (x2 | x1).assert == "abc.7123".mask('.')
+    (x1 | x2)  #=> "abc.7893".mask('.')
+    (x2 | x1)  #=> "abc.7123".mask('.')
 
 For Subtraction, where the characters are the same, the result is "empty", where
 they differ the result reflects the last string.
 
-    (x1 - x2).assert == "....789.".mask('.')
-
-    (x2 - x1).assert == "..c..123".mask('.')
+    (x1 - x2)  #=> "....789.".mask('.')
+    (x2 - x1)  #=> "..c..123".mask('.')
 
 For Multiplication ("Exclusive And"), where the characters are the same, the
 result is the same, where they differ the result reflects the later.
 
-    (x1 * x2).assert == "ab..789.".mask('.')
-
-    (x2 * x1).assert == "abc..123".mask('.')
+    (x1 * x2)  #=> "ab..789.".mask('.')
+    (x2 * x1)  #=> "abc..123".mask('.')
 
 The AND operator, only where they are then same filters through.
 
-    (x1 & x2).assert == "ab......".mask('.')
-
-    (x2 & x1).assert == "ab......".mask('.')
+    (x1 & x2)  #=> "ab......".mask('.')
+    (x2 & x1)  #=> "ab......".mask('.')
 
 The XOR operator, only where there# is an empty slot will the value filter.
 
-    (x1 ^ x2).assert == "..c.7..3".mask('.')
-
-    (x2 ^ x1).assert == "..c.7..3".mask('.')
+    (x1 ^ x2)  #=> "..c.7..3".mask('.')
+    (x2 ^ x1)  #=> "..c.7..3".mask('.')
 
