@@ -25,8 +25,8 @@ operators below.
     x1 = "abc..123".mask('.')
     x2 = "ab..789.".mask('.')
 
-For Addition, as long as there is a value other then empty the character
-filters though.
+For Addition, as long as there is a value other then empty slot the character
+filters though, with the last string taking precedence.
 
     (x1 + x2)  #=> "abc.7893".mask('.')
     (x2 + x1)  #=> "abc.7123".mask('.')
@@ -36,24 +36,25 @@ The OR operator is the same as addition.
     (x1 | x2)  #=> "abc.7893".mask('.')
     (x2 | x1)  #=> "abc.7123".mask('.')
 
-For Subtraction, where the characters are the same, the result is "empty", where
+For Subtraction, where the characters are the same, the result is empty, where
 they differ the result reflects the last string.
 
     (x1 - x2)  #=> "....789.".mask('.')
     (x2 - x1)  #=> "..c..123".mask('.')
 
-For Multiplication ("Exclusive And"), where the characters are the same, the
+For Multiplication (Exclusive AND), where the characters are the same the
 result is the same, where they differ the result reflects the later.
 
     (x1 * x2)  #=> "ab..789.".mask('.')
     (x2 * x1)  #=> "abc..123".mask('.')
 
-The AND operator, only where they are then same filters through.
+The AND operator, only slots that are the same (using ==) filter through.
 
     (x1 & x2)  #=> "ab......".mask('.')
     (x2 & x1)  #=> "ab......".mask('.')
 
-The XOR operator, only where there# is an empty slot will the value filter.
+The XOR operator, only where there is an empty slot will the value filter
+through.
 
     (x1 ^ x2)  #=> "..c.7..3".mask('.')
     (x2 ^ x1)  #=> "..c.7..3".mask('.')
