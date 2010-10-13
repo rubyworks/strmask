@@ -1,4 +1,14 @@
-= HISTORY
+= RELEASE HISTORY
+
+== 0.3.1 / 2010-10-13
+
+Fixed bug that prevented plain strings from being coerced
+into masks.
+
+Changes:
+
+* Fixed issue with plain strings not being coerced.
+
 
 == 0.3.0 / 2010-04-18
 
