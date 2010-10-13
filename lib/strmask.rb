@@ -9,6 +9,9 @@ class String
 
   # = Mask
   #
+  #--
+  # TODO: Probably need to create a proper #hash method.
+  #++
   class Mask
 
     ESC = "\032" # ASCII SUBSTITUTE
@@ -17,21 +20,10 @@ class String
       new(string, re)
     end
 
-  private
-
     def initialize(string, re=nil)
       @to_str = string.dup
       @re     = re
       mask!(re) if re
-    end
-
-    def convert(other)
-      case other
-      when Mask
-        other
-      else
-        self.class.new(other.to_s, re)
-      end
     end
 
   public
@@ -233,6 +225,17 @@ class String
         to_str.send(s, *a, &b)
       rescue NoMethodError
         super(s, *a, &b)
+      end
+    end
+
+    private
+
+    def convert(other)
+      case other
+      when Mask
+        other
+      else
+        self.class.new(other.to_s, re)
       end
     end
 
