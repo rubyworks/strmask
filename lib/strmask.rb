@@ -218,6 +218,11 @@ class String
     #  end
     #end
 
+    #
+    #def coerce(other)
+    #  [self, other.mask(@re)]
+    #end
+
     # Delegate any missing methods to underlying string.
     #
     def method_missing(s, *a, &b)
@@ -235,7 +240,7 @@ class String
       when Mask
         other
       else
-        self.class.new(other.to_s, re)
+        self.class.new(other.to_s, @re)
       end
     end
 
