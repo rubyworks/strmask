@@ -14,6 +14,10 @@ class String
   #++
   class Mask
 
+    # current version
+    VERSION = "0.3.1"
+
+    # substitue (TODO: rename)
     ESC = "\032" # ASCII SUBSTITUTE
 
     def self.[](string, re=nil)

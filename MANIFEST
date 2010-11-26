@@ -1,10 +1,9 @@
-#!mast -x Syckfile .ruby bin lib meta test [A-Z]*
+#!mast -x Syckfile .ruby bin lib test [A-Z]*
 .ruby
 lib/strmask.rb
-meta/data.rb
-meta/package
-meta/profile
 test/test_strmask.rb
+PROFILE
+PACKAGE
 LICENSE
 README.rdoc
 HISTORY
