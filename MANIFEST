@@ -1,9 +1,8 @@
-#!mast -x Syckfile .ruby bin lib test [A-Z]*
+#!mast -x Syckfile -x PROFILE .ruby bin lib man spec test [A-Z]*
 .ruby
 lib/strmask.rb
 test/test_strmask.rb
-PROFILE
-PACKAGE
 LICENSE
 README.rdoc
 HISTORY
+VERSION
