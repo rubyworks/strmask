@@ -1,0 +1,127 @@
+#nav {
+  /* position: fixed;
+  top: 0;
+  right: 17%; */
+  margin: 12px 0;
+  text-align: left;
+  border-color: #CCC;
+  border: 1px solid #CCC;
+  background-color: #eef;
+  -moz-box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2);
+  -moz-border-radius: 0px 0px 5px 5px;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  -webkit-box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#nav .button-list {
+  background: url(../images/tab_background.gif) repeat-x #eef;
+  border-bottom: 1px solid #999;
+  color: #555;
+  padding-left: 1em;
+}
+
+#nav button {
+  font-size: 0.9em;
+  background-color: transparent;
+  border: none;
+  color: #111144;
+  padding: 5px 5px;
+}
+
+#nav button:hover, a:hover {
+  color: #aaa;
+}
+
+#nav a {
+  font-size: 1em;
+  padding: 5px 15px;
+}
+
+#nav button.a {
+  font-size: 1.1em;
+  padding: 5px 15px;
+}
+
+#nav fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+#nav table {
+  width: 100%;
+}
+
+#nav table td {
+  vertical-align: top;
+}
+
+#nav table td a {
+  padding: 5px;
+}
+
+#nav .section {
+  background: white;
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+#nav .section h3 {
+  margin: 0 0 0.4em 0;
+}
+
+#nav .section ul {
+  font-size: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0.5em 0.6em 0.5em 0em;
+}
+
+/* #search-section td a {
+  font-size: 1em;
+}
+
+#search-section td li {
+  margin: 0.2em;
+}
+*/
+
+#nav .section ul a {
+  font-size: 1em;
+  font-size: 14px;
+  padding: 0.1em;
+}
+
+#nav .section li {
+  padding: 2px 0 2px 2px;
+  background: url(../images/icons/bullet.png) no-repeat left 4px;
+  color: #666;
+  margin: 0.2em;
+}
+
+#nav .section li.method {
+  padding-left: 20px;
+  background: url(../images/icons/method.png) no-repeat left 2px;
+}
+
+#nav .section li.singleton {
+  padding-left: 20px;
+  background: url(../images/icons/singleton.png) no-repeat left 2px;
+}
+
+#nav .section li.module {
+  padding-left: 20px;
+  background: url(../images/icons/module.png) no-repeat left 2px;
+}
+
+#nav .section li.class {
+  padding-left: 20px;
+  background: url(../images/icons/class.png) no-repeat left 2px;
+}
+
+#nav .section li.file {
+  padding-left: 20px;
+  background: url(../images/icons/file.png) no-repeat left 2px;
+}
+

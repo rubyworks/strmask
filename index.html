@@ -1,308 +1,530 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!doctype html>
+<html>
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta charset="UTF-8" />
+  <meta name="generator" content="Rebecca" />
 
-  <title>String::Mask</title>
+  <title>API</title>
 
-  <link rel="SHORTCUT ICON" href="assets/icon/ruby.png">
+  <link rel="SHORTCUT ICON" href="assets/images/icons/ruby.png">
 
-  <link type="text/css" rel="stylesheet" href="assets/rdoc.css" media="screen" />
-  <link type="text/css" rel="stylesheet" href="assets/highlight/styles/github.css" title="GitHub" />
+  <!-- Provide console simulation for firebug-less environments -->
+  <script src="assets/javascripts/firebug.js"></script>
 
-  <script type="text/javascript" charset="utf-8" src="assets/jquery.js"></script>
-  <script type="text/javascript" charset="utf-8" src="assets/highlight/highlight.pack.js"></script>
-  <script type="text/javascript" charset="utf-8" src="assets/quicksearch.js"></script>
-  <script type="text/javascript" charset="utf-8" src="assets/main.js"></script>
+  <!-- Provides JQuery framework. -->
+  <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+
+  <!-- Provides templating system. -->
+  <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+
+  <!-- Provides history system. -->
+  <script src="assets/javascripts/jquery.history.js"></script>
+
+  <!-- Provides search filtering. -->
+  <script src="assets/javascripts/quicksearch.js"></script>
+  <link type="text/css" rel="stylesheet" href="assets/stylesheets/quicksearch.css"  media="screen" />
+
+  <!-- Provides rdoc support. -->
+  <script src="assets/javascripts/rundown.js"></script>
+
+  <!-- Provides syntax highlighting support. -->
+  <script src="http://yandex.st/highlightjs/6.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/6.0/styles/default.min.css">
+
+  <!-- Provides keyboard shortcuts. -->
+  <script src="assets/javascripts/keymaster.js"></script>
+
+  <!-- Rebecca javascript -->
+  <script type="text/javascript" charset="utf-8" src="assets/javascripts/rebecca.js"></script>
+  <script type="text/javascript" charset="utf-8" src="assets/javascripts/main.js"></script>
+
+  <!-- Rebecca stylesheets -->
+  <link type="text/css" rel="stylesheet" href="assets/stylesheets/rdoc.css"  media="screen" />
+  <link type="text/css" rel="stylesheet" href="assets/stylesheets/nav.css"   media="screen" />
+  <link type="text/css" rel="stylesheet" href="assets/stylesheets/index.css" media="screen" />
 
   <script type="text/javascript">
-    $(document).ready( function() {
-      $('#documentation pre').wrapInner('<code></code>');
-      hljs.tabReplace = '    ';
-      hljs.initHighlightingOnLoad('ruby');
-
-	    hookSourceViews();
-	    hookDebuggingToggle();
-	    hookQuickSearch();
-	    highlightLocationTarget();
-
-	    $('ul.link-list a').bind( "click", highlightClickTarget );
+    $(document).ready(function(){
+      Rebecca.bootup();
     });
   </script>
 </head>
-<body class="indexpage">
+<body>
+
 <div id="main">
 
-  
-  <div class="head">
-    <h1>
-      <img src="assets/icon/project.png" align="absmiddle">&nbsp;
-      <a href="index.html">String::Mask</a>
-    </h1>
+  <div id="header">
+    <div id="title"></div>
+    <div id="nav"></div>
+    <br style="clear: both;" />
   </div>
 
-  <div id="metadata">
-    <div id="project-metadata">
+  <div id="content"></div>
+  <div id="footer"></div>
+</div>
 
-      
-      
-      <div id="fileindex-section" class="section project-section">
-        <h3 class="section-header">Information</h3>
-        <ul>
-        
-          <li class="file"><a href="LICENSE.html">LICENSE</a></li>
-        
-          <li class="file"><a href="README_rdoc.html">README.rdoc</a></li>
-        
-          <li class="file"><a href="HISTORY.html">HISTORY</a></li>
-        
-        </ul>
-      </div>
-      
 
-      <div id="classindex-section" class="section project-section">
+<!-- Template for title box -->
+
+<script type="text/x-jquery-tmpl" id="template-title">
+  <h2><a href="index.html">${title}</a></h2>
+  <h1>
+    <img src="assets/images/icons/project.png" align="absmiddle">&nbsp;
+    <a href="index.html">README</a>
+  </h1>
+</script>
+
+
+<!-- Template for drop-down search -->
+
+<script type="text/x-jquery-tmpl" id="template-nav">
+  <div class="button-list">
+    <a href="index.html">README</a>
+    <a href="index.html#alpha-index">INDEX</a>
+    <button class="a" onClick="Rebecca.menuToggle('#search-section');">Search</button>: &nbsp;
+
+    <button onClick="Rebecca.menuOn('#fileindex-section');">documents</button> &nbsp;
+    <button onClick="Rebecca.menuOn('#classindex-section');">classes</button> &nbsp;
+    <button onClick="Rebecca.menuOn('#methodindex-section');">methods</button> &nbsp;
+
+    <button onClick="Rebecca.menuOn('.code-section');">. .</button> &nbsp;
+    <button onClick="Rebecca.menuOn('.nav-section');">. . .</button> &nbsp;
+  </div>
+
+  <div id="search-section" class="nav1" style="display: none;">
+    <table>
+    <tr>
+      <!-- FILES -->
+      {{if Rebecca.documentation['documents'].length > 0}}
+        <td id="fileindex-section" class="section nav-section">
+          <h3 class="section-header">Documents</h3>
+          <ul>
+          {{each(i,f) Rebecca.documentation['documents']}}
+            <li class="file">
+              <a href="${Rebecca.href(f.id)}">${f.name}</a>
+            </li>
+          {{/each}}
+          </ul>
+        </td>
+      {{/if}}
+
+      <!-- CLASSES/MODULES -->
+      <td id="classindex-section" class="section nav-section code-section" width="40%">
         <h3 class="section-header">Class Index
-          <span class="search-toggle"><img src="assets/icon/find.png"
-            height="16" width="16" alt="[+]"
-            title="show/hide quicksearch" /></span></h3>
+          <span class="search-toggle">
+            <img src="assets/images/icons/find.png" height="16" width="16" alt="[+]" title="show/hide quicksearch" />
+          </span>
+        </h3>
         <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
         <fieldset>
-          <legend>Quicksearch</legend>
-          <input type="text" name="quicksearch" value=""
-            class="quicksearch-field" />
+          <!-- <legend>Quicksearch</legend> -->
+          <input type="text" name="quicksearch" value="" class="quicksearch-field" />
         </fieldset>
         </form>
 
         <ul class="link-list">
-        
-          <li class="class"><a href="String.html">String</a></li>
-        
-          <li class="class"><a href="String/Mask.html">String::Mask</a></li>
-        
+        {{each(i,m) Rebecca.documentation['modules']}}
+          <li class="${m['!']}">
+            <a href="#${m.id}">${m.path}</a>
+          </li>
+        {{/each}}
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
-      </div>
+      </td>
 
       <!-- METHODS -->
-      <div id="methodindex-section" class="section project-section">
+      <td id="methodindex-section" class="section nav-section code-section" width=60%">
         <h3 class="section-header">Method Index
-          <span class="search-toggle"><img src="assets/icon/find.png"
-            height="16" width="16" alt="[+]"
-            title="show/hide quicksearch" /></span></h3>
+          <span class="search-toggle">
+            <img src="assets/images/icons/find.png" height="16" width="16" alt="[+]" title="show/hide quicksearch" />
+          </span>
+        </h3>
         <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
         <fieldset>
-          <legend>Quicksearch</legend>
-          <input type="text" name="quicksearch" value=""
-            class="quicksearch-field" />
+          <!-- <legend>Quicksearch</legend> -->
+          <input type="text" name="quicksearch" value="" class="quicksearch-field" />
         </fieldset>
         </form>
-
         <ul>
-          
-            
-            <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-c-%5B%5D">::[]</a>
-            </li>
-          
-            
-            <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-c-new">::new</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-%26">#&</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-%2A">#*</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-%2B">#+</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i--">#-</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-%3D%3D">#==</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-%5B%5D">#[]</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-%5E">#^</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-apply">#apply</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-convert">#convert</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-inspect">#inspect</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String</span>
-              <a href="String.html#method-i-mask">#mask</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-mask">#mask</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-mask%21">#mask!</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-method_missing">#method_missing</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-replace">#replace</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-to_s">#to_s</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-to_str">#to_str</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">String::Mask</span>
-              <a href="String/Mask.html#method-i-%7C">#|</a>
-            </li>
-          
+        {{each(i,m) Rebecca.documentation['methods']}}
+          <li class="{{if m.singleton == true}}singleton{{else}}method{{/if}}" style="clear: both;">
+            <span class="method-parent-aside">${m.namespace}</span>
+            <a href="${Rebecca.method_href(m)}">${m.name}</a>
+          </li>
+        {{/each}}
+        </ul>
+      </td>
+
+    </tr>
+    </table>
+  </div>
+</script>
+
+
+<!-- Template for documents -->
+
+<script type="text/x-jquery-tmpl" id="template-document">
+  <div id="documentation">
+    {{html Rebecca.markup(text, format)}}
+  </div>
+</script>
+
+
+<!-- Template for scripts -->
+
+<script type="text/x-jquery-tmpl" id="template-script">
+  <div id="documentation">
+
+    <pre>
+      ${source}
+    </pre>
+  </div>
+</script>
+
+
+<!-- Template for file stats -->
+
+<script type="text/x-jquery-tmpl" id="template-file-stats">
+  <div id="file-stats-section" class="section" style="float: right; width: 300px;">
+    <h3 class="section-header">File Stats</h3>
+    <dl>
+      <dt class="modified-date">Last Modified</dt>
+      <dd class="modified-date">${modified}</dd>
+
+      {{if requires}}
+      <dt class="requires">Requires</dt>
+      <dd class="requires">
+        <ul>
+        {{each(r) requires}}
+          <li>${r.name}</li>
+        {{/each}}
+        </ul>
+      </dd>
+      {{/if}}
+
+      <!-- TODO: support for scm link -->
+      {{if options.scm_url}}
+      <dt class="scm-url">SCM URL</dt>
+      <dd class="scm-url">
+        <a target="_top" href="${scm_url}">${scm_url}</a>
+      </dd>
+      {{/if}}
+    </dl>
+  </div>
+</script>
+
+
+<!-- Template for class/module -->
+
+<script type="text/x-jquery-tmpl" id="template-module">
+  <div id="documentation">
+
+    <div id="description">
+      {{if !/^\s*[=#]/.test(comment)}}
+        <h1>${name}</h1>
+      {{/if}}
+      {{html Rebecca.markup(comment)}}
+    </div>
+
+    <!-- Parent Class -->
+    {{if $item['!'] == 'class'}}
+    <div id="parent-class-section" class="section">
+      <h3 class="section-header">Parent</h3>
+      <ul>
+        {{if this.superclass}}
+          <li class="class">
+            <!-- TODO: if id exists -->
+            <a href="#${Rebecca.id(this.superclass)}">${superclass}</a>
+          </li>
+        {{/if}}
+      </ul>
+    </div>
+    {{/if}}
+
+    <!-- Namespace Contents -->
+    {{if (classes.length > 0 || modules.length > 0)}}
+    <div id="namespace-list-section" class="section">
+      <h3 class="section-header">Namespace</h3>
+      <ul class="link-list">
+        {{if modules}}
+          {{each(i,x) modules}}
+            ${doc = Rebecca.documentation_by_key[x],''}
+            <li class="${doc['!']}"><a href="${doc.id}">${doc.name}</a></li>
+          {{/each}}
+        {{/if}}
+        {{if classes}}
+          {{each(i,x) classes}}
+            ${doc = Rebecca.documentation_by_key[x],''}
+            <li class="${doc['!']}"><a href="${doc.id}">${doc.name}</a></li>
+          {{/each}}
+        {{/if}}
+      </ul>
+    </div>
+    {{/if}}
+
+    <!-- Included Modules -->
+    {{if includes.length > 0}}
+    <div id="includes-section" class="section">
+      <h3 class="section-header">Included Modules</h3>
+      <ul class="link-list">
+      {{each(i,x) includes}}
+        ${doc = Rebecca.documentation_by_key[x],''}
+        <li class="module">
+          <a class="include" href="${doc.id}">${doc.name}</a>
+        </li>
+      {{/each}}
+      </ul>
+    </div>
+    {{/if}}
+
+    <!-- Extension Modules -->
+    {{if extensions.length > 0}}
+    <div id="extensions-section" class="section">
+      <h3 class="section-header">Extension Modules</h3>
+      <ul class="link-list">
+      {{each(i,x) extensions}}
+        ${doc = Rebecca.documentation_by_key[x],''}
+        <li class="module">
+          <a class="include" href="${doc.id}">${doc.name}</a>
+        </li>
+      {{/each}}
+      </ul>
+    </div>
+    {{/if}}
+
+    <!-- Constants -->
+    {{if constants.length > 0}}
+    <div id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      {{each(i,x) constants}}
+        ${doc = Rebecca.documentation_by_key[x],''}
+        <dt><a name="${doc.id}" href="${doc.id}">${doc.name}</a></dt>
+        <dd class="description">${doc.comment}</dd>
+      {{/each}}
+      </dl>
+    </div>
+    {{/if}}
+
+    <!-- Attributes -->
+    {{if accessors.length > 0}}
+    <div id="attributes-list" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      {{each(i,x) accessors}}
+        ${docr = Rebecca.documentation_by_key[x],''}
+        ${docw = Rebecca.documentation_by_key[x+'='],''}
+        <div id="${docr.id}" class="method-detail">
+          <a name="${docr.id}"></a>
+          {{if docw}}
+            <a name="${docw.id}"></a>
+          {{/if}}
+          <div class="method-heading">
+            <span class="method-name">${docr.name}</span>
+            <span class="attribute-access-type">
+              [<a href="${Rebecca.method_href(docr)}">R</a>{{if docw}}<a href="${Rebecca.method_href(docw)}">W</a>{{/if}}]
+            </span>
+          </div>
+
+          <div class="method-description">
+            {{if docr}}<p>${docr.comment}</p>{{/if}}
+            {{if docw}}<p>${docw.comment}</p>{{/if}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    {{/if}}
+
+    <!-- Methods -->
+    {{if methods.length > 0}}
+    ${divy = Rebecca.divy_methods(methods), ''}
+
+    <div id="methods" class="method-section section">
+      {{if divy['class']['public'].length}}
+      <div id="public-class-method-details" class="class-method-list">
+        <h3 class="section-header">Public Class Methods</h3>
+        {{each(i,m) divy['class']['public']}}
+          {{tmpl(m) "#template-method"}}
+        {{/each}}
+      </div>
+      {{/if}}
+
+      {{if divy['class']['private'].length}}
+      <div id="private-class-method-details" class="class-method-list">
+        <h3 class="section-header">Private Class Methods</h3>
+        {{each(i,m) divy['class']['private']}}
+          {{tmpl(m) "#template-method"}}
+        {{/each}}
+      </div>
+      {{/if}}
+
+      {{if divy['class']['protected'].length}}
+      <div id="protected-class-method-details" class="class-method-list">
+        <h3 class="section-header">Protected Class Methods</h3>
+        {{each(i,m) divy['class']['protected']}}
+          {{tmpl(m) "#template-method"}}
+        {{/each}}
+      </div>
+      {{/if}}
+
+      {{if divy['instance']['public'].length}}
+      <div id="public-instance-method-details" class="instance-method-list">
+        <h3 class="section-header">Public Instance Methods</h3>
+        {{each(i,m) divy['instance']['public']}}
+          {{tmpl(m) "#template-method"}}
+        {{/each}}
+      </div>
+      {{/if}}
+
+      {{if divy['instance']['private'].length}}
+      <div id="private-instance-method-details" class="instance-method-list">
+        <h3 class="section-header">Private Instance Methods</h3>
+        {{each(i,m) divy['instance']['private']}}
+          {{tmpl(m) "#template-method"}}
+        {{/each}}
+      </div>
+      {{/if}}
+
+      {{if divy['instance']['protected'].length}}
+      <div id="protected-instance-method-details" class="instance-method-list">
+        <h3 class="section-header">Protected Instance Methods</h3>
+        {{each(i,m) divy['instance']['protected']}}
+          {{tmpl(m) "#template-method"}}
+        {{/each}}
+      </div>
+      {{/if}}
+    </div>
+    {{/if}}
+
+    <!-- In Files -->
+    <div id="file-list-section" class="section">
+      <h3 class="section-header">In Files</h3>
+      <div class="section-body">
+        <ul>
+        {{each(i,f) files}}
+          ${doc = Rebecca.documentation_by_key[f],''}
+          <li class="file">
+            <a href="#${doc.id}" title="${doc.name}">
+              ${doc.path}
+            </a>
+          </li>
+        {{/each}}
         </ul>
       </div>
-
     </div>
 
-    <div id="validator-badges">
-      
-      <div style="float: right; margin-right: 5px;">
-        <a href="http://validator.w3.org/check/referer"><img src="assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+  </div>
+</script>
+
+
+<!-- Template for a method -->
+
+<script type="text/x-jquery-tmpl" id="template-method">
+  <div id="${id}" class="method-detail {{if is_alias_for}}method-alias{{/if}}">
+    <a name="${id}"></a>
+
+    <div class="method-heading" style="position: relative;">
+      <!-- <span class="method-name">${name}</span> -->
+      {{each(i,f) interfaces}}
+        <span class="method-callseq">${f.signature}</span>
+      {{/each}}
+      <span class="method-click-advice">click to toggle source</span>
+    </div>
+
+    <div class="method-description">
+      {{if comment}}
+        {{html Rebecca.markup(comment, format)}}
+      {{else}}
+        <p></p>
+      {{/if}}
+
+      <div class="method-source-code" id="${id}-source">
+        <pre>
+          ${source}
+        </pre>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Newfish</a> 1.4.0
-      <br/><br/> 
+    </div>
+
+    {{if aliases.size > 0}}
+    <div class="aliases">
+      Also aliased as:
+      {{each(ai, aka) aliases}}
+        <a href="#${Rebecca.id(aka.path)}">${aka.name}</a>
+      {{/each}}
+    </div>
+    {{/if}}
+  </div>
+</script>
+
+
+<!-- Template for footer -->
+
+<script type="text/x-jquery-tmpl" id="template-footer">
+  <div id="validator-badges">
+    {{if Rebecca.debug}}
+      <div id="debugging-toggle" style="float: right; margin-right: 5px;">
+        <img src="assets/images/icons/bug.png" alt="[Debug]" height="16" width="16" />
+      </div>
+    {{/if}}
+    <div style="float: right; margin-right: 5px;">
+      Generated with <a href="http://rubyworks.github.com/shomen">Shomen</a>
+                     <a href="http://rdocodile.github.com/rebecca">Rebecca</a>
+                     v${Rebecca.version}
+      &nbsp;
+      <a href="http://validator.w3.org/check/referer">
+        <img src="assets/images/icons/check.png" alt="[Validate]" height="16" width="16" />
+      </a>
+    </div>
+    <br/><br/> 
+  </div>
+</script>
+
+
+<!-- Template for alphabetic index -->
+
+<script type="text/x-jquery-tmpl" id="template-index">
+  <div id="alphabetical-index">
+    <h1>Alphabetical Index</h1>
+
+    {{if Rebecca.documentation['documents'].length > 0}}
+    <div>
+      <h2>Documents</h2>
+      <div class="multi-column listing">
+        {{each(i,f) Rebecca.documentation['documents']}}
+          <div class="item file">
+            <a href="${Rebecca.href(f.id)}">${f.name}</a>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+
+    <!-- CLASSES/MODULES -->
+    <div>
+      <h2>Class Index</h2>
+      <div class="multi-column listing">
+      {{each(i,m) Rebecca.documentation['modules']}}
+        <div class="item ${m['!']}">
+          <a href="#${m.id}">${m.path}</a>
+        </div>
+      {{/each}}
+      <divl>
+    </div>
+
+    <!-- METHODS -->
+    <div>
+      <h2>Method Index</h2>
+      <div class="multi-column listing">
+      {{each(i,m) Rebecca.documentation['methods']}}
+        <div class="item {{if m.singleton == true}}singleton{{else}}method{{/if}}">
+          <a href="${Rebecca.method_href(m)}" title="${m.namespace}">${m.name}</a>
+        </div>
+      {{/each}}
+      </div>
     </div>
   </div>
+</script>
 
-  
-  <div id="documentation">
-    <h1><a href="String/Mask.html">String::Mask</a></h1>
-<ul>
-<li><p>
-home: <a
-href="http://rubyworks.github.com/strmask">rubyworks.github.com/strmask</a>
-</p>
-</li>
-<li><p>
-work: <a
-href="http://github.com/rubyworks/strmask">github.com/rubyworks/strmask</a>
-</p>
-</li>
-</ul>
-<h2>DESCRIPTION</h2>
-<p>
-Mask provides a string utility to manipulate strings in logicomathematical
-manner, ie. add, subtract, xor, etc.
-</p>
-<h2>SYNOPSIS</h2>
-<p>
-Mask objects can be created explicitly via new.
-</p>
-<pre>
-  m1 = String::Mask.new(&quot;abc..123&quot;, '.')
-  m2 = String::Mask.new(&quot;ab..789.&quot;, '.')
-  m1 - m2                             #=&gt; &quot;....789.&quot;
-</pre>
-<p>
-But the <a href="String.html#method-i-mask">String#mask</a> extension is
-much easier to use.
-</p>
-<pre>
-  m1 = &quot;abc..123&quot;.mask('.')
-  m2 = &quot;ab..789.&quot;.mask('.')
-  m1 * m2                             #=&gt; &quot;ab..789.&quot;
-</pre>
-<p>
-The second operand can be a normal <a href="String.html">String</a>. Mask
-will assume it repesents another mask akin to the first.
-</p>
-<pre>
-  &quot;abc..123&quot;.mask('.') + &quot;ab..789.&quot;   #=&gt; &quot;abc.7893&quot;
-</pre>
-<h2>HOW TO INSTALL</h2>
-<p>
-To install with RubyGems simply open a console and type:
-</p>
-<pre>
-  gem install strmask
-</pre>
-<h2>COPYRIGHT</h2>
-<p>
-Copyright &#169; 2009 Thomas Sawyer
-</p>
-<p>
-This program is ditributed unser the terms of the Apache 2.0 license.
-</p>
-<p>
-See the <a href="LICENSE.html">LICENSE</a> file for details.
-</p>
-
-  </div>
-  
-
-</div>
 </body>
 </html>
 

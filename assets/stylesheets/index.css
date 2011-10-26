@@ -1,0 +1,36 @@
+#alphabetical-index {
+  padding: 0 15px;
+  margin: 0 0 20px 0;
+}
+
+#alphabetical-index h2 {
+  border-bottom: 1px solid #ccc;
+}
+
+#alphabetical-index div.item {
+  padding: 0;
+  padding-left: 24px;
+  color: #666;
+  font-size: 14px;
+}
+
+#alphabetical-index div.method {
+  background: url(../images/icons/method.png) no-repeat left;
+}
+
+#alphabetical-index div.singleton {
+  background: url(../images/icons/singleton.png) no-repeat left;
+}
+
+#alphabetical-index div.module {
+  background: url(../images/icons/module.png) no-repeat left;
+}
+
+#alphabetical-index div.class {
+  background: url(../images/icons/class.png) no-repeat left;
+}
+
+#alphabetical-index div.file {
+  background: url(../images/icons/file.png) no-repeat left;
+}
+

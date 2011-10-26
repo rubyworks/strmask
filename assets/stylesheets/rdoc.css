@@ -1,0 +1,810 @@
+/*
+ * This file was original based on the rdoc.css file from 
+ * Michael Granger's Darkfish RDoc templates. It has changed
+ * a great deal since then and I beleive it can be radically 
+ * simplifed, but it is a rather rains taking endeavor.
+ */
+
+/* Base Red is: color: #FF226C; */
+
+body {
+  background: #efefef;
+  background: #ffffff;
+  font: 16px "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+  padding: 0; margin: 0;
+}
+
+#main {
+  max-width: 1080px;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#document {
+  margin: 0;
+}
+
+.highlighted {
+  background: #fdd;
+  border: 1px solid #ecc;
+}
+
+/*
+body.class, body.module, body.file {
+  margin-left: 40px;
+}
+*/
+
+body.file-popup {
+  font-size: 90%;
+  margin-left: 0;
+}
+
+img { border: none; }
+
+h1 {
+  font-size: 300%;
+  text-shadow: rgba(135,145,135,0.65) 2px 2px 3px;
+  color: black;
+}
+
+h2,h3,h4 { margin-top: 1.5em; }
+
+a {
+  color: #FF226C;
+  color: #224;
+  text-decoration: none;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+}
+
+a:hover {
+  border-bottom: 1px dotted #FF226C;
+}
+
+pre {
+  padding: 0.5em 0;
+  border: 1px solid #ccc;
+  line-height: 1.4em;
+  font-family: courier, monospace;
+  font-size: 0.8em;
+}
+
+p {
+  margin: 1em 0;
+  line-height: 1.5em;
+  font-family: serif;
+}
+
+ul {
+  margin-left: 20px;
+  list-style: circle;
+}
+
+li p {
+  margin: 0; padding: 0;
+}
+
+
+table.rdoc-list {
+  margin: 0.75em 0.1em 0.5em 0.1em;
+}
+
+table.rdoc-list p {
+  margin: 0; padding: 5px;
+}
+
+table.rdoc-list td {
+  margin: 0; padding: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+
+/* #header */
+
+#header {
+  width: 100%;
+}
+
+#header #title {
+  padding: 10px 0 15px 25px;
+  border-bottom: 1px solid #999;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  margin: 0 auto;
+  background: #e9e9e9;
+  -moz-box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2);
+  -moz-border-radius: 0px 0px 5px 5px;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  -webkit-box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+#header #title h1 {
+  margin: 0;
+}
+
+#header #title h2 {
+  padding: 0;
+  margin: 0;
+  margin-left: 32px;
+}
+
+#header #title h1 {
+  color: #666;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+#header #title h1 a {
+  font-weight: bold; 
+}
+
+
+/* @group Generic Classes */
+
+.missing-docs {
+  font-size: 120%;
+  background: white url(../images/icons/fixme.png) no-repeat 4px center;
+  color: #ccc;
+  line-height: 2em;
+  border: 0px solid #d00;
+  opacity: 1;
+  padding-left: 20px;
+  text-indent: 24px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.target-section {
+  border: 2px solid #fff362;
+  border-width: 1px 2px;
+  padding: 1px 2px;
+  background: #fff362;
+}
+
+/* @end */
+
+
+/* @group Index Page, Standalone file pages */
+
+/*
+body.indexpage {
+  margin: 1em 3em;
+}
+*/
+
+/*
+body.indexpage p,
+body.indexpage div,
+body.file p {
+  margin: 1em 0;
+}
+*/
+
+#metadata ul {
+  font-size: 14px;
+}
+
+#metadata ul a {
+  font-size: 14px;
+}
+
+/*
+.indexpage ul,
+.file #documentation ul {
+  line-height: 160%;
+  list-style: none;
+}
+*/
+
+#metadata ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+/*
+.indexpage ul a,
+.file #documentation ul a {
+  font-size: 16px;
+}
+*/
+
+#metadata li {
+  padding-left: 20px;
+  background: url(../images/icons/bullet.png) no-repeat left 4px;
+  color: #666;
+}
+
+#metadata li.method {
+  padding-left: 20px;
+  background: url(../images/icons/method.png) no-repeat left 2px;
+}
+
+#metadata li.singleton {
+  padding-left: 20px;
+  background: url(../images/icons/singleton.png) no-repeat left 2px;
+}
+
+#metadata li.module {
+  padding-left: 20px;
+  background: url(../images/icons/module.png) no-repeat left 2px;
+}
+
+#metadata li.class {
+  padding-left: 20px;
+  background: url(../images/icons/class.png) no-repeat left 2px;
+}
+
+#metadata li.file {
+  padding-left: 20px;
+  background: url(../images/icons/file.png) no-repeat left 2px;
+}
+
+/* @end */
+
+/* @group Top-Level Structure */
+
+#metadata {
+  float: right;
+  width: 330px;
+  margin-top: 10px;
+  border-left: 1px solid #ccc;
+  padding-left: 12px;
+}
+
+
+
+#documentation {
+  margin: 0 20px 5em 20px;
+  min-width: 340px;
+}
+
+/*
+.file #metadata {
+  margin: 0.8em;
+}
+*/
+
+#validator-badges {
+  clear: both;
+  text-align: left;
+  margin: 1em 1em 2em;
+  font-weight: bold;
+  font-size: 80%;
+}
+
+/* @end */
+
+/* @group Metadata Section */
+
+#metadata .section {
+  background-color: #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 0 solid #ccc;
+  margin: 0 8px 16px;
+  font-size: 90%;
+  overflow: hidden;
+}
+
+#metadata h3.section-header {
+  margin: 0;
+  padding: 2px 8px;
+  background: #fff;
+  color: #666;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-bottom: 1px solid #ccc;
+}
+
+#metadata ul,
+#metadata dl,
+#metadata p {
+  padding:  8px;
+  list-style: none;
+}
+
+#file-metadata ul {
+  padding-left: 28px;
+  list-style-image: url(../images/icons/page.png);
+}
+
+dl.svninfo {
+  color: #666;
+  margin: 0;
+}
+dl.svninfo dt {
+  font-weight: bold;
+}
+
+ul.link-list li {
+  white-space: nowrap;
+}
+
+ul.link-list .type {
+  font-size: 8px;
+  text-transform: uppercase;
+  color: white;
+  background: #969696;
+  padding: 2px 4px;
+  -webkit-border-radius: 5px;
+}
+
+/* @end */
+
+
+/* @group Project Metadata Section */
+#project-metadata {
+  margin-top: 0em;
+}
+
+/*
+.file #project-metadata {
+  margin-top: 0em;
+}
+*/
+
+#project-metadata .section {
+	border: 0px solid #ccc;
+}
+#project-metadata h3.section-header {
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+#project-metadata h3.section-header .search-toggle {
+	position: absolute;
+	right: 5px;
+}
+
+
+#project-metadata form {
+	color: #777;
+	background: #ffffff;
+	padding: 8px 8px 16px;
+	border-bottom: 0px solid #ccc;
+}
+#project-metadata fieldset {
+	border: 0;
+}
+
+#no-class-search-results {
+	margin: 0 auto 1em;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #aaa;
+}
+
+.method-parent-aside {
+  float: right; font-size: 0.7em;
+  font-weight: bold;
+  padding: 0 0 0 15px;
+  color: #aaa;
+  font-family: helvetica;
+  letter-spacing: -1px;
+}
+
+/* @end */
+
+
+/* @group Documentation Section */
+
+#documentation h1,h2,h3,h4,h5,h6 {
+  font-weight: bold;
+}
+
+#documentation h2 {
+  font-size: 1.5em;
+}
+
+#documentation h1 {
+  margin: 8px 0 4px 0;
+  padding: 0.2em 0;
+  border-bottom: 1px solid #bbb;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+#documentation ul {
+  margin-top: 10px;
+}
+
+#description {
+	font-size: 100%;
+	color: #333;
+}
+
+#description p {
+	margin: 1em 0.4em;
+}
+
+#description ul {
+	margin-left: 2em;
+}
+#description ul li {
+	line-height: 1.4em;
+}
+
+#description dl,
+#documentation dl {
+  margin: 8px 1.5em;
+  border: 1px solid #ccc;
+}
+#description dl {
+  font-size: 14px;
+}
+
+#description dt,
+#documentation dt {
+  padding: 2px 4px;
+  font-weight: bold;
+  background: #ddd;
+}
+#description dd,
+#documentation dd  {
+  padding: 2px 12px;
+}
+#description dd + dt,
+#documentation dd + dt {
+  margin-top: 0.7em;
+}
+
+#documentation .section {
+  font-size: 0.8em;
+}
+#documentation h3.section-header {
+  margin-top: 2em;
+  padding: 0.75em 0.5em 0.25em 1.25em;
+  /* background-color: #dedede; */
+  color: #333;
+  font-size: 150%;
+  border-bottom: 1px solid #bbb;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+#constants-list > dl,
+#attributes-list > dl {
+  margin: 1em 0 2em 2em;
+  border: 0;
+}
+#constants-list > dl dt,
+#attributes-list > dl dt {
+  padding-left: 0;
+  font-weight: bold;
+  font-family: Monaco, "Andale Mono";
+  background: inherit;
+}
+#constants-list > dl dt a,
+#attributes-list > dl dt a {
+  color: inherit;
+}
+#constants-list > dl dd,
+#attributes-list > dl dd {
+  margin: 0 0 1em 0;
+  padding: 0;
+  color: #111;
+}
+
+#attributes-list .section-header {
+	background: url(../images/icons/attribute.png) no-repeat left center;
+}
+
+#constants-list .section-header {
+	background: url(../images/icons/constant.png) no-repeat left center;
+}
+
+#constants-list a {
+  font-family: Monaco, "Andale Mono";
+}
+
+#includes-section .section-header {
+	background: url(../images/icons/module.png) no-repeat left center;
+}
+
+#extensions-section .section-header {
+	background: url(../images/icons/module.png) no-repeat left center;
+}
+
+#includes-section li {
+  list-style : none;
+  font-weight: bold;
+  font-family: Monaco, "Andale Mono";
+}
+
+#parent-class-section li {
+  list-style : none;
+  font-weight: bold;
+  font-family: Monaco, "Andale Mono";
+}
+
+#parent-class-section .section-header {
+	background: url(../images/icons/class.png) no-repeat left center;
+}
+
+#file-list-section ul {
+  margin-left: 0;
+}
+
+#file-list-section li {
+  font-weight: bold;
+  font-family: Monaco, "Andale Mono";
+}
+
+#file-list-section li a {
+  font-weight: bold;
+  font-family: Monaco, "Andale Mono";
+}
+
+#file-list-section .section-header {
+  background: url(../images/icons/file.png) no-repeat left center;
+}
+
+
+#documentation .instance-method-list .section-header {
+  background: url(../images/icons/method.png) no-repeat left center;
+}
+
+#documentation .class-method-list .section-header {
+  background: url(../images/icons/singleton.png) no-repeat left center;
+}
+
+
+#namespace-list-section .section-header {
+  background: url(../images/icons/module.png) no-repeat left center;
+}
+
+#namespace-list-section li {
+  list-style : none;
+  font-weight: bold;
+  font-family: Monaco, "Andale Mono";
+}
+
+/* @group Method Details */
+
+#documentation .method-source-code {
+	display: none;
+}
+
+#documentation .method-detail {
+	margin: 0.5em 0;
+	padding: 0.5em 0;
+	cursor: pointer;
+}
+#documentation .method-detail:hover {
+	background-color: #eee;
+}
+#documentation .method-alias {
+  font-family: Monaco, "Andale Mono";
+	font-style: oblique;
+}
+#documentation .method-heading {
+  font-family: Monaco, "Andale Mono";
+	padding: 2px 4px 0 20px;
+	font-weight: bold;
+	color: #333;
+	/* background: url(../images/icons/method.png) no-repeat left bottom; */
+}
+#documentation .method-heading a {
+	color: inherit;
+}
+#documentation .method-click-advice {
+	position: absolute;
+	top: 2px;
+	right: 5px;
+	font-size: 10px;
+	color: #9b9877;
+	visibility: hidden;
+	padding-right: 20px;
+	line-height: 20px;
+	background: url(../images/icons/zoom.png) no-repeat right top;
+  margin-right: 20px;
+}
+#documentation .method-detail:hover .method-click-advice {
+	visibility: visible;
+}
+
+#documentation .method-alias .method-heading {
+	color: #111;
+	background: url(../images/icons/alias.png) no-repeat left bottom;
+}
+
+#documentation .method-description,
+#documentation .aliases {
+	margin: 0 20px;
+	line-height: 1.2em;
+	color: #111;
+}
+#documentation .aliases {
+	padding-top: 4px;
+	font-style: italic;
+	cursor: default;
+}
+#documentation .method-description p {
+	padding: 0;
+  color: #111;
+}
+#documentation .method-description p + p {
+	margin-bottom: 0.5em;
+}
+
+#documentation #attribute-method-details .method-detail:hover {
+	background-color: transparent;
+	cursor: default;
+}
+#documentation .attribute-access-type {
+	font-size: 60%;
+	text-transform: uppercase;
+	vertical-align: super;
+	padding: 0 2px;
+}
+/* @end */
+
+/* @end */
+
+
+
+/* @group Source Code */
+
+a.source-toggle {
+  font-size: 90%;
+}
+
+a.source-toggle img {
+}
+
+div.method-source-code {
+  background: #262626;
+  background: #F6F6F6;
+  color: #2f2f2f;
+  margin: 1em 0;
+  padding: 0;
+  border: 1px dashed #999;
+  overflow: hidden;
+}
+
+div.method-source-code pre {
+	background: inherit;
+	padding: 1em;
+	color: #222;
+	overflow: hidden;
+  margin: 0;
+}
+
+/* @group Ruby keyword styles */
+
+.standalone-code { background: #111111; color: #22dead; overflow: hidden; }
+
+.ruby-constant   { color: #7fffd4; background: transparent; }
+.ruby-keyword    { color: #00ffff; background: transparent; }
+.ruby-ivar       { color: #eedd82; background: transparent; }
+.ruby-operator   { color: #00ffee; background: transparent; }
+.ruby-identifier { color: #ffdead; background: transparent; }
+.ruby-node       { color: #ffa07a; background: transparent; }
+.ruby-comment    { color: #b22222; background: transparent; font-weight: bold;}
+.ruby-regexp     { color: #ffa07a; background: transparent; }
+.ruby-value      { color: #7fffd4; background: transparent; }
+
+.ruby-constant   { color: #70004d; background: transparent; }
+.ruby-keyword    { color: #000000; background: transparent; font-weight: bold;}
+.ruby-ivar       { color: #11448e; background: transparent; }
+.ruby-operator   { color: #ff0022; background: transparent; }
+.ruby-identifier { color: #00413d; background: transparent; }
+.ruby-node       { color: #001f71; background: transparent; }
+.ruby-comment    { color: #bbbbbb; background: transparent; }
+.ruby-regexp     { color: #001f71; background: transparent; }
+.ruby-value      { color: #70004d; background: transparent; }
+
+/* @end */
+/* @end */
+
+
+/* @group File Popup Contents */
+
+#file-stats-section {
+  background: white;
+  padding: 10px;
+  margin-right: 40px;
+  border-left: 1px solid #ccc;
+}
+
+/* .file #documentation {
+  margin: 0;
+} */
+
+.file #metadata {
+  float: right;
+}
+
+.file-popup #metadata {
+  float: right;
+}
+
+.file-popup dl {
+	font-size: 80%;
+	padding: 0.75em;
+	background-color: #efefef;
+	color: #333;
+	border: 1px solid #bbb;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.file dt {
+	font-weight: bold;
+	padding-left: 22px;
+	line-height: 20px;
+	background: url(../images/icons/stat.png) no-repeat left top;
+}
+.file dt.modified-date {
+	background: url(../images/icons/date.png) no-repeat left top;
+}
+.file dt.requires {
+	background: url(../images/icons/plugin.png) no-repeat left top;
+}
+.file dt.scs-url {
+	background: url(../images/icons/wrench.png) no-repeat left top;
+}
+
+.file dl dd {
+	margin: 0 0 1em 0;
+}
+.file #metadata dl dd ul {
+	list-style: circle;
+	margin-left: 20px;
+	padding-top: 0;
+}
+.file #metadata dl dd ul li {
+}
+
+/*
+.file h2 {
+	margin-top: 2em;
+	padding: 0.75em 0.5em 0.25em 0.1em;
+	color: #333;
+	font-size: 120%;
+	border-bottom: 1px solid #bbb;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+*/
+
+/* @end */
+
+
+/* @group Debugging Section */
+
+#debugging-toggle {
+	text-align: center;
+}
+#debugging-toggle img {
+	cursor: pointer;
+}
+
+#rdoc-debugging-section-dump {
+	display: none;
+	margin: 0 2em 2em;
+	background: #ccc;
+	border: 1px solid #999;
+}
+
+.quicksearch-field {
+  width: 98%;
+}
+
+/* @end */
+
+.multi-column {
+  column-count: 3;
+  column-gap: 1.5em;
+  -moz-column-count: 3;
+  -moz-column-gap: 1.5em;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1.5em;
+}
+
