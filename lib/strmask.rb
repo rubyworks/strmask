@@ -14,16 +14,32 @@ class String
   #++
   class Mask
 
-    # current version
+    # Current version.
     VERSION = "0.3.2"  # :erb: VERSION = "<%= version %>"
 
-    # substitue (TODO: rename)
+    # Substitue (TODO: rename)
     ESC = "\032" # ASCII SUBSTITUTE
 
+    # New Mask.
+    #
+    # @param [String] string
+    #   Any regular or masked string.
+    #
+    # @param [String] re
+    #   Single character string used to mark empty slots.
+    #
     def self.[](string, re=nil)
       new(string, re)
     end
 
+    # Initialize new string mask.
+    #
+    # @param [String] string
+    #   Any regular or masked string.
+    #
+    # @param [String] re
+    #   Single character string used to mark empty slots.
+    #
     def initialize(string, re=nil)
       @to_str = string.dup
       @re     = re
@@ -52,10 +68,17 @@ class String
       to_str[*a]
     end
 
+    # Create a new mask with the same underlying string, but
+    # using a different empty slot.
+    #
+    # @param [String] re
+    #   Single character string used to mark empty slots.
+    #
     def mask(re)
       self.class.new(to_str,re)
     end
 
+    #
     def mask!(re)
       to_str.gsub!(re){ |s| ESC * s.size }
     end
