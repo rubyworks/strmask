@@ -1,8 +1,10 @@
-#!mast -x Syckfile -x PROFILE .ruby bin lib man spec test [A-Z]*
+#!mast .ruby .yardopts bin lib man qed spec test [A-Z]*.*
 .ruby
+.yardopts
 lib/strmask.rb
+lib/strmask.yml
+qed/strmask.rdoc
 test/test_strmask.rb
-LICENSE
+HISTORY.rdoc
 README.rdoc
-HISTORY
-VERSION
+NOTICE.rdoc

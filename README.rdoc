@@ -1,7 +1,9 @@
 = String::Mask
 
-* home: http://rubyworks.github.com/strmask
-* work: http://github.com/rubyworks/strmask
+{Homepage}[http://rubyworks.github.com/strmask] |
+{Source Code}[http://github.com/rubyworks/strmask]
+
+{<img src="http://travis-ci.org/rubyworks/strmask.png" />}[http://travis-ci.org/rubyworks/strmask]
 
 
 == DESCRIPTION
@@ -9,6 +11,7 @@
 Mask provides a string utility to manipulate strings
 in logicomathematical manner, ie. add, subtract, xor,
 etc.
+
 
 == SYNOPSIS
 
@@ -30,18 +33,18 @@ it repesents another mask akin to the first.
   "abc..123".mask('.') + "ab..789."   #=> "abc.7893"
 
 
-== HOW TO INSTALL
+== INSTALL
 
 To install with RubyGems simply open a console and type:
 
-  gem install strmask
+  $ gem install strmask
 
 
-== COPYRIGHT
+== COPYRIGHTS
 
-Copyright (c) 2009 Thomas Sawyer
+Copyright (c) 2009 Thomas Sawyer, Rubyworks
 
-This program is ditributed unser the terms of the Apache 2.0 license.
+This program is ditributed unser the terms of the *FreeBSD* license.
 
-See the LICENSE file for details.
+See the NOTICE.rdoc file for details.
 

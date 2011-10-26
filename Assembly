@@ -1,0 +1,24 @@
+---
+email:
+  mailto:
+    - ruby-talk@ruby-lang.org
+    - rubyworks-mailinglist@googlegroups.com
+
+gem:
+  active: true
+
+github:
+  gh-pages: pages
+  active: false
+
+yard:
+  priority: 2
+
+dnote:
+  output: log/NOTES.rdoc
+
+vclog:
+  output:
+    - log/Changes.rdoc
+    - log/History.rdoc
+

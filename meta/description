@@ -1,0 +1,2 @@
+String::Mask provides a kind-of string algebra useful for manipulating strings
+in comparitive ways, eg. add, subtract, xor, etc.

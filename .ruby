@@ -1,35 +1,43 @@
---- 
-name: string::mask
-company: RubyWorks
-title: String::Mask
-requires: 
-- group: 
+---
+source:
+- meta
+authors:
+- name: Thomas Sawyer
+  email: transfire@gmail.com
+copyrights:
+- holder: Thomas Sawyer
+  year: '2009'
+  license: BSD-2-Clause
+replacements: []
+alternatives: []
+requirements:
+- name: qed
+  groups:
   - test
-  name: qed
-  version: 0+
-- group: 
+  development: true
+- name: detroit
+  groups:
   - build
-  name: syckle
-  version: 0+
-resources: 
-  code: http://github.com/rubyworks/strmask
-  mail: http://groups.google.com/group/rubyworks-mailinglist
-  home: http://rubyworks.github.com/strmask
-pom_verison: 1.0.0
-manifest: 
-- .ruby
-- lib/strmask.rb
-- test/test_strmask.rb
-- LICENSE
-- README.rdoc
-- HISTORY
-- VERSION
-version: 0.3.1
-copyright: Copyright (c) 2009 Thomas Sawyer
-licenses: 
-- Apache 2.0
-description: String::Mask provides a kind-of string algebra useful for manipulating strings in in comparitive ways, eg. add, subtract, xor, etc.
+  development: true
+dependencies: []
+conflicts: []
+repositories: []
+resources:
+  Homepage: http://rubyworks.github.com/strmask
+  Source Code: http://github.com/rubyworks/strmask
+  Mailing List: http://groups.google.com/group/rubyworks-mailinglist
+extra: {}
+load_path:
+- lib
+revision: 0
+created: '2009-07-19'
 summary: String Algebra
-authors: 
-- Thomas Sawyer
-created: 2009-07-19
+title: String::Mask
+version: 0.3.2
+name: strmask
+description: ! 'String::Mask provides a kind-of string algebra useful for manipulating
+  strings
+
+  in comparitive ways, eg. add, subtract, xor, etc.'
+organization: RubyWorks
+date: '2011-10-26'
