@@ -33,7 +33,7 @@ revision: 0
 created: '2009-07-19'
 summary: String Algebra
 title: String::Mask
-version: 0.3.1
+version: 0.3.2
 name: strmask
 description: ! 'String::Mask provides a kind-of string algebra useful for manipulating
   strings

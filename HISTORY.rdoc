@@ -1,10 +1,10 @@
 = RELEASE HISTORY
 
-== 0.3.1 / 2011-10-27
+== 0.3.2 / 2011-10-27
 
 Fixed bug that prevented plain strings from being coerced
 into masks. This release also brings the build system up
-to date with latest tools.
+to date with latest tools. (Note: 0.3.1 was botched).
 
 Changes:
 
