@@ -11,6 +11,14 @@ github:
   gh-pages: pages
   active: false
 
+qed:
+  files: qed/
+
+qedoc:
+  files: qed/
+  title: String::Mask Demonstrandum
+  output: QED.rdoc
+
 yard:
   priority: 2
 

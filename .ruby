@@ -33,11 +33,11 @@ revision: 0
 created: '2009-07-19'
 summary: String Algebra
 title: String::Mask
-version: 0.3.2
+version: 0.3.1
 name: strmask
 description: ! 'String::Mask provides a kind-of string algebra useful for manipulating
   strings
 
   in comparitive ways, eg. add, subtract, xor, etc.'
 organization: RubyWorks
-date: '2011-10-26'
+date: '2011-10-27'

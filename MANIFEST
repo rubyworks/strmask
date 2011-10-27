@@ -7,4 +7,5 @@ qed/strmask.rdoc
 test/test_strmask.rb
 HISTORY.rdoc
 README.rdoc
+QED.rdoc
 NOTICE.rdoc
