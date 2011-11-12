@@ -2,7 +2,6 @@
 .yardoc
 log
 doc
-pages
 pkg
 tmp
-QED.rdoc
+web

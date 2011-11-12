@@ -1,6 +1,6 @@
 ---
 source:
-- meta
+- var
 authors:
 - name: Thomas Sawyer
   email: transfire@gmail.com
@@ -40,4 +40,4 @@ description: ! 'String::Mask provides a kind-of string algebra useful for manipu
 
   in comparitive ways, eg. add, subtract, xor, etc.'
 organization: RubyWorks
-date: '2011-10-27'
+date: '2011-11-11'

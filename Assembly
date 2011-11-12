@@ -8,14 +8,13 @@ gem:
   active: true
 
 github:
-  gh-pages: pages
-  active: false
+  gh-pages: web
 
 qed:
-  files: qed/
+  files: qed
 
 qedoc:
-  files: qed/
+  files: qed
   title: String::Mask Demonstrandum
   output: QED.rdoc
 
@@ -23,10 +22,10 @@ yard:
   priority: 2
 
 dnote:
-  output: log/NOTES.rdoc
+  output: log/notes.html
 
 vclog:
   output:
-    - log/Changes.rdoc
-    - log/History.rdoc
+    - log/changes.html
+    - log/history.html
 
