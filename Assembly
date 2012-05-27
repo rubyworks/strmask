@@ -11,12 +11,12 @@ github:
   gh-pages: web
 
 qed:
-  files: qed
+  files: demo
 
 qedoc:
-  files: qed
-  title: String::Mask Demonstrandum
-  output: QED.rdoc
+  files: demo
+  title: String::Mask Demonstration
+  output: DEMO.rdoc
 
 yard:
   priority: 2
